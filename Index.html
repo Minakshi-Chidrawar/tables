@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  
+  <section id="cover">
+    <div class="container">
+      <header>
+        <h1 class="header-bottom">
+          Welcome to Practice table
+        </h1>
+      </header>
+
+      <div id="cover-caption">
+  
+        <div id="highscores" ></div>
+        
+        <div class="left-float col-sm-5">
+          <table id="outputData" class="table"></table>
+        </div>
+        
+        <aside class="">
+          <div class="left-float col-sm-4 aside-center">
+            <form class="form-group">
+                  <input id="firstName" type="text" placeholder="Enter Your FirstName" maxlength="10"> <br />
+              <button type="submit" class="btn btn-primary form-button" onClick="saveLocal()">Submit</button>
+            </form>
+          </div>
+        </aside>        
+      </div>
+    </div>
+  </section>
+
+  <script src="load.js"></script>  
+</body>
+</html>
