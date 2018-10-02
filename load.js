@@ -18,17 +18,19 @@ function startProcess() {
     console.log(localStorage.key(2));
   }
   */
+	console.log(localStorage.length);
     for (i = 0; i < (localStorage.length); i++) {
         key = localStorage.key(i);
         value = localStorage.getItem(key);
     
-    /*console.log(i);
+	console.log("It is in the loop table");
+    console.log(i);
     console.log(key);
     console.log(value);
-    */
-        if (document.getElementById("highscores") !== null) {
-            tableData.innerHTML += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-        }
+    
+        //if (document.getElementById("highscores") !== null) {
+        tableData.innerHTML += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
+        //}
     }
 }
 

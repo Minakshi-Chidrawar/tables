@@ -10,30 +10,29 @@
 
 <body>
   
-  <section id="cover">
-    <div class="container">
-      <header>
-        <h1 class="header-bottom">
-          Welcome to Practice table
-        </h1>
-      </header>
-
-      <div id="cover-caption">
-  
-        <div id="highscores" ></div>
-        
-        <div class="left-float col-sm-5">
-          <table id="outputData" class="table"></table>
-        </div>
-        
-        <aside class="">
-          <div class="left-float col-sm-4 aside-center">
+  <section class="container">
+    <div class="">
+      <div class="container">   
+		<h1 class="display-4">Welcome to Practice table</h1>
+        <hr class="my-4">
+ 
+		<div class="text-center">
+          <div class="row text-center">
             <form class="form-group">
                   <input id="firstName" type="text" placeholder="Enter Your FirstName" maxlength="10"> <br />
               <button type="submit" class="btn btn-primary form-button" onClick="saveLocal()">Submit</button>
             </form>
-          </div>
-        </aside>        
+          </div>		
+        
+			<div class="text-center">
+			  <table id="outputData" class="table"></table>
+			  <div id="highscores" ></div>
+			</div>
+			
+
+
+ 
+		</div>		
       </div>
     </div>
   </section>
