@@ -17,7 +17,7 @@
 function LoadInputValues() {
     //clear the input box of answer
     document.getElementById('answer').value = "";
-    document.getElementById('count').innerText = totalCount + ")  ";
+    document.getElementById('count').innerText = totalCount + ".";
     //document.getElementById('tempMsg').innerHTML = "";
     var operand1 = 2;    
     //Set input1 to 2 as it is table for 2
@@ -52,7 +52,7 @@ function CalculateFunction(val) {
     wrongAnswers.push([operand1Value + " X " + operand2Value + " = " 
                     + expectedAnswer + "  Your answer:" + userAnswer]);
     
-    document.getElementById('nextButton').className = 'btn btn-primary btn-lg';
+    document.getElementById('nextButton').className = 'btn btn-danger btn-lg';
 
     output = 'Your Answer is WRONG!' 
            + '</br> Correct answer is: ' + expectedAnswer 
@@ -62,12 +62,16 @@ function CalculateFunction(val) {
 }
 
 function LoadNextInputValues() {
-  if (totalCount < 11) {
+  if (totalCount = 10) {
+	  document.getElementById('correctAnswers').className = "btn btn-success showClass";
+	  document.getElementById('wrongAnswers').className = "btn btn-danger showClass";
+	  document.getElementById('startCalculation').className = 'hideClass';
+  }
     console.log("this is in load next values");
     
     totalCount++;
     document.getElementById('msg').innerHTML = "";
-    document.getElementById('count').innerText = totalCount + ")  ";
+    document.getElementById('count').innerText = totalCount + ".";
     document.getElementById('nextButton').className = 'btn btn-primary form-button';
     document.getElementById('operand1').textContent = 2;  
     var answer = document.getElementById('answer').value;
@@ -93,24 +97,23 @@ function LoadNextInputValues() {
     {
       document.getElementById('msg').innerHTML = "Please enter an answer";
     }
-  }
+
 
   function checkForOperand2(swapArray) {
     operand2 = (Math.round(Math.random() * 11));
     console.log("This is in the check operand2: " + operand2 );
-    //if (swapArray.includes(operand2)) {
-    if (swapArray.indexOf(operand2)) {
-      checkForOperand2();  
+    console.log(swapArray.includes(operand2));
+    if (!swapArray.includes(operand2)) {
+	  console.log("the value is same" + operand2 + swapArray.includes(operand2));        
     } 
     else {
       console.log("as opernad is different, hence in else part");
-      return operand2;
+      checkForOperand2(swapArray);
     }
-    
+	console.log("Value passed will be: " + operand2);
+    return operand2;
   }
 }
-
-
 
 function displayCorrectAnswers() {
   var test = "<ol>";
