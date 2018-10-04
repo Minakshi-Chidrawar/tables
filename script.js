@@ -16,6 +16,7 @@
   
 function LoadInputValues() {
     //clear the input box of answer
+	document.getElementById('paraAnswers').className = 'hideClass';
     document.getElementById('answer').value = "";
     document.getElementById('count').innerText = totalCount + ".";
     //document.getElementById('tempMsg').innerHTML = "";
@@ -62,14 +63,10 @@ function CalculateFunction(val) {
 }
 
 function LoadNextInputValues() {
-  if (totalCount = 10) {
-	  document.getElementById('correctAnswers').className = "btn btn-success showClass";
-	  document.getElementById('wrongAnswers').className = "btn btn-danger showClass";
-	  document.getElementById('startCalculation').className = 'hideClass';
-  }
-    console.log("this is in load next values");
-    
-    totalCount++;
+	totalCount++;
+  if (totalCount < 5) {
+    console.log("this is in load next values");    
+   
     document.getElementById('msg').innerHTML = "";
     document.getElementById('count').innerText = totalCount + ".";
     document.getElementById('nextButton').className = 'btn btn-primary form-button';
@@ -97,7 +94,15 @@ function LoadNextInputValues() {
     {
       document.getElementById('msg').innerHTML = "Please enter an answer";
     }
-
+  }	
+  else {
+		document.getElementById('paraAnswers').className = 'showClass';
+		document.getElementById('correctAnswers').className = "btn btn-success showClass";
+		document.getElementById('wrongAnswers').className = "btn btn-danger showClass";
+		document.getElementById('startCalculation').className = 'hideClass';
+		document.getElementById('nextButton').className = 'hideClass';
+		document.getElementById('msg').className = 'hideClass';
+  }
 
   function checkForOperand2(swapArray) {
     operand2 = (Math.round(Math.random() * 11));
