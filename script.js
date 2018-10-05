@@ -64,9 +64,7 @@ function CalculateFunction(val) {
 
 function LoadNextInputValues() {
 	totalCount++;
-  if (totalCount < 5) {
-    console.log("this is in load next values");    
-   
+  if (totalCount < 5) { 
     document.getElementById('msg').innerHTML = "";
     document.getElementById('count').innerText = totalCount + ".";
     document.getElementById('nextButton').className = 'btn btn-primary form-button';
@@ -87,7 +85,7 @@ function LoadNextInputValues() {
       var inputBox = document.getElementById('operand2');
       operand2 = checkForOperand2(swapArray);
       swapArray.push(operand2);
-      console.log(swapArray);
+
       inputBox.innerText = operand2;
     }
     else
@@ -96,26 +94,23 @@ function LoadNextInputValues() {
     }
   }	
   else {
-		document.getElementById('paraAnswers').className = 'showClass';
+	  window.open("answer.html", "_self");
+/* 		document.getElementById('paraAnswers').className = 'showClass';
 		document.getElementById('correctAnswers').className = "btn btn-success showClass";
 		document.getElementById('wrongAnswers').className = "btn btn-danger showClass";
 		document.getElementById('startCalculation').className = 'hideClass';
 		document.getElementById('nextButton').className = 'hideClass';
-		document.getElementById('msg').className = 'hideClass';
+		document.getElementById('msg').className = 'hideClass'; */
   }
 
   function checkForOperand2(swapArray) {
     operand2 = (Math.round(Math.random() * 11));
     console.log("This is in the check operand2: " + operand2 );
     console.log(swapArray.includes(operand2));
-    if (!swapArray.includes(operand2)) {
-	  console.log("the value is same" + operand2 + swapArray.includes(operand2));        
+    if (swapArray.includes(operand2)) {
+	  checkForOperand2(swapArray);        
     } 
-    else {
-      console.log("as opernad is different, hence in else part");
-      checkForOperand2(swapArray);
-    }
-	console.log("Value passed will be: " + operand2);
+
     return operand2;
   }
 }
