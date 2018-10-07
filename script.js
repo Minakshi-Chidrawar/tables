@@ -16,7 +16,7 @@
   
 function LoadInputValues() {
     //clear the input box of answer
-	document.getElementById('paraAnswers').className = 'hideClass';
+	//document.getElementById('paraAnswers').className = 'hideClass';
     document.getElementById('answer').value = "";
     document.getElementById('count').innerText = totalCount + ".";
     //document.getElementById('tempMsg').innerHTML = "";
@@ -41,16 +41,14 @@ function CalculateFunction(val) {
   totalAnswersCount++;
   if (expectedAnswer == userAnswer)
   {    
-    correctAnswers.push([operand1Value + " X " + operand2Value + " = "+ expectedAnswer]);
-	correctAnswersCount++;
+    totalAnswers.push([operand1Value + " X " + operand2Value + " = "+ expectedAnswer]);
 	
-    document.getElementById('nextButton').className = 'btn btn-success';
+    document.getElementById('nextButton').className = 'btn btn-success btn-lg';
     output =  'Your Answer is CORRECT!';
   }
   else
   {
-    wrongAnswersCount++;
-    wrongAnswers.push([operand1Value + " X " + operand2Value + " = " 
+    totalAnswers.push([operand1Value + " X " + operand2Value + " = " 
                     + expectedAnswer + "  Your answer:" + userAnswer]);
     
     document.getElementById('nextButton').className = 'btn btn-danger btn-lg';
@@ -69,7 +67,7 @@ function LoadNextInputValues()
 		{ 
 			document.getElementById('msg').innerHTML = "";
 			document.getElementById('count').innerText = totalCount + ".";
-			document.getElementById('nextButton').className = 'btn btn-primary form-button';
+			document.getElementById('nextButton').className = 'btn btn-primary btn-lg';
 			document.getElementById('operand1').textContent = 2;  
 			var answer = document.getElementById('answer').value;
 		  
@@ -92,11 +90,8 @@ function LoadNextInputValues()
 		}	
 		else 
 		{
-			var totalAnswersData = [ correctAnswers, wrongAnswers ];
-			
-			alert(totalAnswersData);
 			// Set the variable
-			localStorage["answers"] = JSON.stringify(totalAnswersData);
+			localStorage["answers"] = JSON.stringify(totalAnswers);
 			console.log("Localstorage is set");
 			window.open("answer.html", "_self");
 		}

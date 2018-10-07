@@ -7,31 +7,19 @@ if (localStorage != null)
 		var totalAnswers = JSON.parse(localStorage['answers']);
 		
 		// Clear the localStorage
-		//localStorage.removeItem('answers'); 
-		var correctAnswers = totalAnswers[0];
+		localStorage.removeItem('answers'); 
+		//var correctAnswers = totalAnswers;
 		alert(totalAnswers);
-		alert(totalAnswers[0]);
-		var wrongAnswers = totalAnswers[1];
 	}
 	
-function displayCorrectAnswers() 
+function displayAnswers() 
 	{
-		for (var i = 0; i < correctAnswers.length; i++) 
+		for (var i = 0; i < totalAnswers.length; i++) 
 		{
-			test += "<li>" + correctAnswers[i] + "</li>";
+			test += "<li>" + totalAnswers[i] + "</li>";
 		}
 
 		test += "</ol>";
+		document.getElementById('totaAnswers').className = 'hideClass';
 		answers.innerHTML = test;
 	} 
-
-function displayWrongAnswers() 
-	{
-		for (var i = 0; i < wrongAnswers.length; i++) 
-		{
-			test += "<li>" + wrongAnswers[i] + "</li>";
-		}
- 
-		test += "</ol>";
-		answers.innerHTML = test;
-	}
