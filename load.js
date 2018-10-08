@@ -10,23 +10,10 @@ function startProcess() {
     localStorage.setItem("Monu", "50");
   //location.reload();
   
-  //check if local storage has any value
-  //If yes then display
-  //alert(localStorage.getItem("Monu"));
-  
-/*  if (localStorage === null) {
-    console.log(localStorage.key(2));
-  }
-  */
 	console.log(localStorage.length);
     for (i = 0; i < (localStorage.length); i++) {
         key = localStorage.key(i);
         value = localStorage.getItem(key);
-    
-	console.log("It is in the loop table");
-    console.log(i);
-    console.log(key);
-    console.log(value);
     
         //if (document.getElementById("highscores") !== null) {
         tableData.innerHTML += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";

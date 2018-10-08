@@ -9070,3 +9070,12 @@ a.text-dark:hover, a.text-dark:focus {
 .showClass {
   display: block;
 }
+
+.input-box-center {
+	padding-left: 30%;
+	padding-top: 20px;
+	margin-top: 50px;
+	border: 1px solid #73063a;
+	border-radius: 20px;
+}
+
