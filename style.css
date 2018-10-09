@@ -66,7 +66,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #cedce0de;
 }
 
 [tabindex="-1"]:focus {
@@ -1670,8 +1670,9 @@ pre code {
 .table {
   width: 100%;
   max-width: 100%;
-  /*margin-bottom: 1rem;
-  background-color: transparent;*/
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  background-color: transparent;
 }
 
 .table th,
@@ -8980,7 +8981,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* Styles go here */
 .container {
   margin: 80px auto;
-  font-size: 150%;
+  font-size: 120%;
   width: 85%;
   /*position: relative;*/
 }
@@ -9073,9 +9074,18 @@ a.text-dark:hover, a.text-dark:focus {
 
 .input-box-center {
 	padding-left: 30%;
-	padding-top: 20px;
-	margin-top: 50px;
-	border: 1px solid #73063a;
+	/*padding-top: 20px;
+	margin-top: 30px;
+	border: 1px solid #73063a;*/
 	border-radius: 20px;
 }
 
+.btn-submit {
+	margin-top: 30px;
+	margin-left: 35%;
+}
+
+.container > .tabalea {
+	border: 2px solid #73063a;
+	border-radius: 20px;
+}
