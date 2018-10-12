@@ -3,13 +3,10 @@
 	
 if (localStorage != null) 
 	{
-		console.log("This is in the check of local storage is not null");
 		var totalAnswers = JSON.parse(localStorage['answers']);
 		
 		// Clear the localStorage
 		localStorage.removeItem('answers'); 
-		//var correctAnswers = totalAnswers;
-		alert(totalAnswers);
 	}
 	
 function displayAnswers() 
