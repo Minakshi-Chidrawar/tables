@@ -16,7 +16,7 @@
   
 function LoadInputValues() {
     //clear the input box of answer
-	//document.getElementById('paraAnswers').className = 'hideClass';
+
     document.getElementById('answer').value = "";
     document.getElementById('count').innerText = totalCount + ".";
     //document.getElementById('tempMsg').innerHTML = "";
@@ -61,12 +61,11 @@ function CalculateFunction(val) {
 }
 
 function LoadNextInputValues() 
-	{
-		totalCount++;
+	{		
 		if (totalCount < 5) 
 		{ 
 			document.getElementById('msg').innerHTML = "";
-			document.getElementById('count').innerText = totalCount + ".";
+
 			document.getElementById('nextButton').className = 'btn btn-primary btn-lg';
 			document.getElementById('operand1').textContent = 2;  
 			var answer = document.getElementById('answer').value;
@@ -74,6 +73,7 @@ function LoadNextInputValues()
 			
 			if (answer !== "")
 			{
+				totalCount++;
 			  //clear the input box of answer
 			  document.getElementById('answer').value = "";
 			  
@@ -81,7 +81,8 @@ function LoadNextInputValues()
 			  operand2 = checkForOperand2(swapArray);
 			  swapArray.push(operand2);
 
-			  inputBox.innerText = operand2;
+			  inputBox.innerText = operand2;			
+			  document.getElementById('count').innerText = totalCount + ".";
 			}
 			else
 			{
