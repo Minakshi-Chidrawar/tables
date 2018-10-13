@@ -16,13 +16,12 @@
   
 function LoadInputValues() {
     //clear the input box of answer
-
     document.getElementById('answer').value = "";
     document.getElementById('count').innerText = totalCount + ".";
-    //document.getElementById('tempMsg').innerHTML = "";
+	
     var operand1 = 2;    
     //Set input1 to 2 as it is table for 2
-    document.getElementById('operand1').innerText = operand1;
+    document.getElementById('operand1').innerText = 2;
 
     var inputBox = document.getElementById('operand2');
     var operand2 = (Math.round(Math.random() * 11));
