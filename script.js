@@ -1,6 +1,4 @@
 // Code goes here
-//document.getElementById('input1').innerHTML = 2;
-//document.getElementById('input3').value = (Math.round(Math.random() * 11));
   var correctAnswers = [];
   var wrongAnswers = [];
   var totalAnswers = [];
@@ -13,15 +11,12 @@
   var wrongAnswersCount = 0;
   var totalAnswersCount = 0;
   var totalCount = 1;
-  
-function LoadInputValues() {
+   
+function LoadInputValues(operand1) {
     //clear the input box of answer
     document.getElementById('answer').value = "";
     document.getElementById('count').innerText = totalCount + ".";
-	
-    var operand1 = 2;    
-    //Set input1 to 2 as it is table for 2
-    document.getElementById('operand1').innerText = 2;
+    document.getElementById('operand1').innerText = operand1;
 
     var inputBox = document.getElementById('operand2');
     var operand2 = (Math.round(Math.random() * 11));
@@ -30,13 +25,12 @@ function LoadInputValues() {
     inputBox.innerHTML = operand2;    
 }
 
-function CalculateFunction(val) {
+function CalculateFunction(val, operand1) {
   var operand1Value = (document.getElementById('operand1').innerText);
   var operand2Value = (document.getElementById('operand2').innerText);
-  var expectedAnswer = 2 * operand2Value;
+  var expectedAnswer = operand1 * operand2Value;
   var userAnswer = val;
   
-  //document.getElementById('tempMsg').innerHTML = typeof(userAnswer);
   totalAnswersCount++;
   if (expectedAnswer == userAnswer)
   {    
@@ -59,14 +53,14 @@ function CalculateFunction(val) {
   document.getElementById('msg').innerHTML = output;
 }
 
-function LoadNextInputValues() 
+function LoadNextInputValues(operand1) 
 	{		
 		if (totalCount < 5) 
 		{ 
 			document.getElementById('msg').innerHTML = "";
 
 			document.getElementById('nextButton').className = 'btn btn-primary btn-lg';
-			document.getElementById('operand1').textContent = 2;  
+			document.getElementById('operand1').textContent = operand1;  
 			var answer = document.getElementById('answer').value;
 		  
 			
