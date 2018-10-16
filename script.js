@@ -11,7 +11,11 @@
   var wrongAnswersCount = 0;
   var totalAnswersCount = 0;
   var totalCount = 1;
-   
+  
+  //var operand = document.getElementById("table21").getAttribute("onclick");
+  //var      x = document.getElementById("myBtn").getAttribute("onclick");
+  //console.log(x);  
+	
 function LoadInputValues(operand1) {
     //clear the input box of answer
     document.getElementById('answer').value = "";
@@ -55,7 +59,7 @@ function CalculateFunction(val, operand1) {
 
 function LoadNextInputValues(operand1) 
 	{		
-		if (totalCount < 5) 
+		if (totalCount < 10) 
 		{ 
 			document.getElementById('msg').innerHTML = "";
 
