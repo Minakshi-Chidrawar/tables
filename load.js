@@ -1,37 +1,43 @@
-window.onload = startProcess();
+    var users  = [];
+	users.push(["Mayank", "40"]);
+    users.push(["Monu", "50"]);
+	localStorage["users"] = JSON.stringify(users);
+	
+    window.onload = startProcess();
 
 function startProcess() {
-    var firstName = document.getElementById("name"),
-        tableData = document.getElementById("outputData"),
-        i = 0;
+    var tableData = document.getElementById("outputData");
     tableData.innerHTML = "<tr class='table-th-color'> <th>Name</th> <th>Score</th> </tr>";
-  //localStorage.clear();
-    localStorage.setItem("Mayank", "40");
-    localStorage.setItem("Monu", "50");
-  //location.reload();
-  
-	console.log(localStorage.length);
-    for (i = 0; i < (localStorage.length); i++) {
-        key = localStorage.key(i);
-        value = localStorage.getItem(key);
-    
-        //if (document.getElementById("highscores") !== null) {
-        tableData.innerHTML += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-        //}
-    }
+
+	retrieveFromLocalStorage(tableData);
 }
 
 function saveLocal() {
-    var key = firstName.value,
-        value = "0";
-  
-    if (key && value) {
-        console.log("This is in savelocal");
-        localStorage.setItem(key, value);
-        location.reload();
-    //window.open("table.html", "_self");
-        window.open("table.html");
-    }
-  
+	var firstName = document.getElementById("firstName").value;
+
+    for (i = 0; i < (usersFromLocalStorage.length); i++) {
+ 		if (usersFromLocalStorage[i].includes(firstName)) {
+			score = usersFromLocalStorage[i][1];
+		} else 
+		{
+			alert(firstName);
+			users.push([firstName, "0"]);
+			localStorage["users"] = JSON.stringify(users);
+			score = 0;
+			retrieveFromLocalStorage();
+			break;
+		}		
+    }	
+	window.open("table.html");  
 }
 
+function retrieveFromLocalStorage(tableData) {
+	alert("It is in the function");
+	var usersFromLocalStorage = JSON.parse(localStorage['users']);
+	alert(usersFromLocalStorage);
+	for (var i = 0; i < (usersFromLocalStorage.length); i++) {
+	retrieveUser = usersFromLocalStorage[i];
+
+	tableData.innerHTML += "<tr><td>" + retrieveUser[0] + "</td><td>" + retrieveUser[1] + "</td></tr>";       
+    }
+}
