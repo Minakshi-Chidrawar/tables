@@ -12,6 +12,8 @@
   var totalAnswersCount = 0;
   var totalCount = 1;
   
+  var correctTick = "<img src='img/correct.png' style='margin:0px 30px'/>"
+  var wrongTick = "<img src='img/wrong.png' style='margin:0px 30px'/>"
   //var operand = document.getElementById("table21").getAttribute("onclick");
   //var      x = document.getElementById("myBtn").getAttribute("onclick");
   //console.log(x);  
@@ -38,7 +40,8 @@ function CalculateFunction(val, operand1) {
   totalAnswersCount++;
   if (expectedAnswer == userAnswer)
   {    
-    totalAnswers.push([operand1Value + " X " + operand2Value + " = "+ expectedAnswer]);
+    totalAnswers.push([operand1Value + " X " + operand2Value + " = " 
+					+ expectedAnswer + "    " + correctTick]);
 	
     document.getElementById('nextButton').className = 'btn btn-success btn-lg';
     output =  'Your Answer is CORRECT!';
@@ -46,7 +49,8 @@ function CalculateFunction(val, operand1) {
   else
   {
     totalAnswers.push([operand1Value + " X " + operand2Value + " = " 
-                    + expectedAnswer + "  Your answer:" + userAnswer]);
+                    + userAnswer + "  Answer is: " + expectedAnswer
+					+ wrongTick]);
     
     document.getElementById('nextButton').className = 'btn btn-danger btn-lg';
 
