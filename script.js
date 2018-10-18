@@ -67,7 +67,7 @@ function LoadNextInputValues(operand1)
 		{ 
 			document.getElementById('msg').innerHTML = "";
 
-			document.getElementById('nextButton').className = 'btn btn-primary btn-lg';
+			document.getElementById('nextButton').className = 'hideClass';
 			document.getElementById('operand1').textContent = operand1;  
 			var answer = document.getElementById('answer').value;
 		  
