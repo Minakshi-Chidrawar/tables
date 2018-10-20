@@ -20,7 +20,7 @@
 	
 function LoadInputValues(operand1) {
     //clear the input box of answer
-    document.getElementById('answer').value = "";
+    document.getElementById('answer').innerText = "";
     document.getElementById('count').innerText = totalCount + ".";
     document.getElementById('operand1').innerText = operand1;
 
@@ -77,6 +77,7 @@ function LoadNextInputValues(operand1)
 				totalCount++;
 			  //clear the input box of answer
 			  document.getElementById('answer').value = "";
+			  document.getElementById('submitAnswer').className = 'btn btn-primary btn-lg showClass';
 			  
 			  var inputBox = document.getElementById('operand2');
 			  operand2 = checkForOperand2(swapArray);
