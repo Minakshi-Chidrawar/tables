@@ -2,39 +2,38 @@
 	users.push(["Mayank", "40"]);
     users.push(["Monu", "50"]);
 	localStorage["users"] = JSON.stringify(users);
+	var tableData = document.getElementById("outputData");
+	var usersFromLocalStorage = JSON.parse(localStorage['users']);
 	
     window.onload = startProcess();
 
-function startProcess() {
-    var tableData = document.getElementById("outputData");
+function startProcess() {    
     tableData.innerHTML = "<tr class='table-th-color'> <th>Name</th> <th>Score</th> </tr>";
-
-	retrieveFromLocalStorage(tableData);
+	retrieveFromLocalStorage();
 }
 
-function saveLocal() {
-	var firstName = document.getElementById("firstName").value;
+function saveLocal(name) {
+	var firstName = name;
 
     for (i = 0; i < (usersFromLocalStorage.length); i++) {
- 		if (usersFromLocalStorage[i].includes(firstName)) {
-			score = usersFromLocalStorage[i][1];
+ 		if (usersFromLocalStorage[i][0] === firstName) {
+			break;
 		} else 
 		{
-			alert(firstName);
 			users.push([firstName, "0"]);
 			localStorage["users"] = JSON.stringify(users);
-			score = 0;
-			retrieveFromLocalStorage();
 			break;
 		}		
     }	
-	window.open("table.html");  
+	
+	retrieveFromLocalStorage();
+	window.open("table.html", "_self");  
 }
 
-function retrieveFromLocalStorage(tableData) {
-	alert("It is in the function");
+function retrieveFromLocalStorage() {
+	tableData.innerHTML = "";
 	var usersFromLocalStorage = JSON.parse(localStorage['users']);
-	alert(usersFromLocalStorage);
+
 	for (var i = 0; i < (usersFromLocalStorage.length); i++) {
 	retrieveUser = usersFromLocalStorage[i];
 
