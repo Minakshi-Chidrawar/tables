@@ -4,8 +4,6 @@
   var totalAnswers = [];
   var swapArray = [];
   var checkOperandValue = [];
-  //var operand2 = (Math.round(Math.random() * 11));  
-  //checkOperandValue.push(operand2);
   
   var correctAnswersCount = 0;
   var wrongAnswersCount = 0;
@@ -14,11 +12,10 @@
   
   var correctTick = "<img src='img/correct.png' style='margin:0px 30px'/>"
   var wrongTick = "<img src='img/wrong.png' style='margin:0px 30px'/>"
-  //var operand = document.getElementById("table21").getAttribute("onclick");
-  //var      x = document.getElementById("myBtn").getAttribute("onclick");
-  //console.log(x);  
-	
-function LoadInputValues(operand1) {
+  var parameters = location.search.substring(1).split("?");
+  operand1 = parameters[0].split("=")[1];
+  
+function LoadInputValues() {
     //clear the input box of answer
     document.getElementById('answer').innerText = "";
     document.getElementById('count').innerText = totalCount + ".";
@@ -31,7 +28,7 @@ function LoadInputValues(operand1) {
     inputBox.innerHTML = operand2;    
 }
 
-function CalculateFunction(val, operand1) {
+function CalculateFunction(val) {
   var operand1Value = (document.getElementById('operand1').innerText);
   var operand2Value = (document.getElementById('operand2').innerText);
   var expectedAnswer = operand1 * operand2Value;
@@ -61,7 +58,7 @@ function CalculateFunction(val, operand1) {
   document.getElementById('msg').innerHTML = output;
 }
 
-function LoadNextInputValues(operand1) 
+function LoadNextInputValues() 
 	{		
 		if (totalCount < 10) 
 		{ 
