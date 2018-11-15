@@ -12,6 +12,11 @@
   
   var correctTick = "<img src='img/correct.png' style='margin:0px 30px'/>"
   var wrongTick = "<img src='img/wrong.png' style='margin:0px 30px'/>"
+  
+  var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  //document.getElementById("welcomeUser").innerText = "Which table do you want to practice " + currentUser + "?";
+  
+  //Find the table number from url
   var parameters = location.search.substring(1).split("?");
   operand1 = parameters[0].split("=")[1];
   
@@ -26,6 +31,13 @@ function LoadInputValues() {
     swapArray.push(operand2);
     
     inputBox.innerHTML = operand2;    
+
+			var users = JSON.parse(localStorage.getItem("users"));
+			console.log("# users length: " + users.length);
+			console.log(users[0][0]);
+			users.forEach(function(user, index) {
+				console.log(user);
+			});	
 }
 
 function CalculateFunction(val) {
@@ -33,6 +45,11 @@ function CalculateFunction(val) {
   var operand2Value = (document.getElementById('operand2').innerText);
   var expectedAnswer = operand1 * operand2Value;
   var userAnswer = val;
+  
+  if (totalCount === 1)
+  {
+	startTimer();
+  }
   
   totalAnswersCount++;
   if (expectedAnswer == userAnswer)
@@ -61,7 +78,7 @@ function CalculateFunction(val) {
 function LoadNextInputValues() 
 	{		
 		if (totalCount < 10) 
-		{ 
+		{ 		
 			document.getElementById('msg').innerHTML = "";
 
 			document.getElementById('nextButton').className = 'hideClass';
@@ -91,6 +108,7 @@ function LoadNextInputValues()
 		else 
 		{
 			// Set the variable
+			stopTimer();
 			localStorage["answers"] = JSON.stringify(totalAnswers);
 			console.log("Localstorage is set");
 			window.open("answer.html", "_self");
@@ -107,3 +125,16 @@ function LoadNextInputValues()
 
 		return operand2;
 	}
+	
+function startTimer() {
+	var seconds = 0;
+	timer = setInterval(function() {
+		seconds ++;
+		document.getElementById("seconds").innerText = seconds % 60;
+		document.getElementById("minutes").innerText = parseInt(seconds / 60);
+	}, 1000);
+}	
+
+function stopTimer() {
+	clearInterval(timer);
+}
