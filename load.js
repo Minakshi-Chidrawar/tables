@@ -12,9 +12,10 @@ function startProcess() {
 	retrieveFromLocalStorage();
 }
 
-function saveLocal(name) {
-	var firstName = name;
-
+function saveLocal(firstName) {
+	//var firstName = firstName;
+	localStorage["currentUser"] = JSON.stringify(firstName);
+	
     for (i = 0; i < (usersFromLocalStorage.length); i++) {
  		if (usersFromLocalStorage[i][0] === firstName) {
 			break;
@@ -30,10 +31,15 @@ function saveLocal(name) {
 	window.open("table.html", "_self");  
 }
 
-function retrieveFromLocalStorage() {
+function retrieveFromLocalStorage() {			
 	tableData.innerHTML = "";
-	var usersFromLocalStorage = JSON.parse(localStorage['users']);
+	//var usersFromLocalStorage = JSON.parse(localStorage['users']);
+	var usersFromLocalStorage = JSON.parse(localStorage.getItem("users"));
 
+	usersFromLocalStorage.forEach(function(user, index) {
+		console.log(user);
+	});
+			
 	for (var i = 0; i < (usersFromLocalStorage.length); i++) {
 	retrieveUser = usersFromLocalStorage[i];
 
