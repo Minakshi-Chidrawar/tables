@@ -17,6 +17,11 @@
 				<h1 class="display-4">Practice 2 table</h1>
 				<hr class="my-4">
 				
+				<div class="timer">
+					<span id="minutes">0</span> minute(s)
+					<span id="seconds">0</span> seconds.
+				</div>
+						
 				<div id='startCalculation' class='row textFont'>
 				  <div class='col-2'> 
 					<span id='count'>).</span>
@@ -38,7 +43,7 @@
 					<span>=</span>
 				  </div>
 				
-				  <input type='text' id='answer' required autofocus onchange="CalculateFunction(this.value, 2)" />
+				  <input type='text' id='answer' required autofocus onchange="CalculateFunction(this.value)" />
 
 				</div>  
 				<div class="clearfix"></div>
@@ -48,7 +53,7 @@
 					<p id="msg"></p>
 					<div class="row">					
 						<div class="col-3">
-							<button id="nextButton" class='btn btn-primary btn-lg hideClass' type="submit" onClick="LoadNextInputValues(2)">Next</button>
+							<button id="nextButton" class='btn btn-primary btn-lg hideClass' type="submit" onClick="LoadNextInputValues()">Next</button>
 						</div>
 						<div class="col-3">
 							<a href="Index.html" class="btn btn-primary btn-lg" role="button">Home</a>
